@@ -14,8 +14,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v4
+        with:
+          cache: 'pip'
       - name: Install ESPHome
-        run: pip install --user esphome
+        run: pip install --user --upgrade esphome
       - name: ESPHome Build Cache
         uses: actions/cache@v3
         with:
