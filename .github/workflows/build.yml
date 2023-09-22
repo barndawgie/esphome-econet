@@ -19,7 +19,7 @@ jobs:
       - name: ESPHome Build Cache
         uses: actions/cache@v3
         with:
-          path: ./esphome
+          path: ./.esphome
           key: ${{ github.workflow }}-${{ runner.os }}-.esphome
       - name: Compile Release Firmware
         run: |
