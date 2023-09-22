@@ -1,5 +1,6 @@
 ---
 name: Build Firmware
+
 on:
   pull_request:
   push:
@@ -23,5 +24,3 @@ jobs:
           econet_heatpump_water_heater.yaml  \
           econet_hvac.yaml \
           econet_tankless_water_heater.yaml
-
-      - name: Compile Debug Firmware
