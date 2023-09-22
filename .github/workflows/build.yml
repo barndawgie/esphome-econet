@@ -18,7 +18,6 @@ jobs:
         run: pip install --user esphome
 
       - name: Compile Release Firmware
-        working-directory: firmware
         run: |
           esphome compile \
           econet_heatpump_water_heater.yaml  \
