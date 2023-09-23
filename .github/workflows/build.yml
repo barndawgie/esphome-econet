@@ -18,7 +18,7 @@ jobs:
           python-version: "3.x"
           cache: 'pip'
       - name: Install ESPHome
-        run: pip install --user --upgrade  esphome
+        run: pip install --upgrade  esphome
       - name: ESPHome Build Cache
         uses: actions/cache@v3
         with:
