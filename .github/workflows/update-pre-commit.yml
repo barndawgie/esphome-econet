@@ -4,7 +4,7 @@ name: Pre-commit auto-update
 on:
   # every day at midnight
   schedule:
-    - cron: "15 10 * * 1"
+    - cron: "0 0 * * 1"
   # on demand
   workflow_dispatch:
 
@@ -12,6 +12,7 @@ jobs:
   auto-update:
     runs-on: ubuntu-latest
     permissions:
+      contents: write
       pull-requests: write
     steps:
       - uses: actions/checkout@v4
