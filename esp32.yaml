@@ -15,6 +15,12 @@ packages:
     # file: econet_tankless_water_heater.yaml
     # file: econet_electric_tank_water_heater.yaml
 
+logger:
+  baud_rate: 115200  # Make sure logging is not using the serial port
+  level: ${logger_level}
+  tx_buffer_size: 2000
+  hardware_uart: UART1
+
 wifi:
   ap:
 
