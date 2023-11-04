@@ -1,7 +1,6 @@
 name: Build and Publish ESPHome firmware
 
 on:
-  push: #added for testing
   workflow_call:
     inputs:
       files:
