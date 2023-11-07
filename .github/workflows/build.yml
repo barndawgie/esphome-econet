@@ -13,7 +13,7 @@ concurrency:
 
 jobs:
   configure:
-    name: Verify ${{ matrix.appliance.name }} Configurations
+    name: Verify ${{ matrix.appliance.name }} Configuration with ${{ matrix.config_file }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -39,12 +39,12 @@ jobs:
         uses: mikefarah/yq@v4.35.2
         with:
           cmd: >
-            yq -P -i '.packages.econet = "econet_${{ matrix.appliance.name }}.yaml" \
-            | .packages.econet tag = "!include" \
-            | .wifi.ssid = "STUB_SSID" \
-            | .wifi.ssid tag = "" \
-            | .wifi.password = "STUB_PASSWORD" \
-            | .wifi.password tag = ""' \
+            yq -P -i '.packages.econet = "econet_${{ matrix.appliance.name }}.yaml"
+            | .packages.econet tag = "!include"
+            | .wifi.ssid = "STUB_SSID"
+            | .wifi.ssid tag = ""
+            | .wifi.password = "STUB_PASSWORD"
+            | .wifi.password tag = ""'
             ./${{ matrix.config_file }}
       - name: Validate configuration
         run: esphome -s external_components_source components config ./${{ matrix.config_file }}
