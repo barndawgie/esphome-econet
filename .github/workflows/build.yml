@@ -9,7 +9,7 @@ on:
 
 jobs:
   build:
-    name: Build Firmware
+    name: Build ${{ matrix.appliance.name }} Firmware
     runs-on: ubuntu-latest
     strategy:
       matrix:
