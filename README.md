@@ -4,6 +4,8 @@ This [ESPHome](https://esphome.io) package creates a local network connection to
 
 ## Supported Rheem Hardware
 
+THIS IS A TEST
+
 Rheem Heat Pump Water Heaters, Tankless Water Heaters, Electric Tank Water Heaters, and HVAC Systems are supported.
 
 ## Suggested Hardware Setup
