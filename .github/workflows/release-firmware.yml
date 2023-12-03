@@ -4,7 +4,6 @@ name: Release Firmware
 on:
   release:
     types: [published]
-  push: # TODO: Remove after testing
   workflow_dispatch:  # TODO: Remove after testing
 
 jobs:
