@@ -11,7 +11,6 @@ substitutions:
   external_components_source: github://esphome-econet/esphome-econet@${github_ref}
   logger_level: WARN
   econet_update_interval: 30s
-
 esphome:
   name: ${name}
   friendly_name: ${friendly_name}
@@ -21,16 +20,12 @@ esphome:
   board: $board
   project:
     name: "esphome-econet.esphome-econet"
-    version: 1.7.0
-
+    version: v0.0.1
 preferences:
   flash_write_interval: "24h"
-
 wifi:
   ap:
-
 captive_portal:
-
 api:
   services:
     - service: read
@@ -50,31 +45,24 @@ api:
         value: float
       then:
         - lambda: id(econet_id).homeassistant_write(datapoint_id, value);
-
 ota:
-
 logger:
   level: ${logger_level}
   tx_buffer_size: 1024
-
 improv_serial:
-
 external_components:
   - source: ${external_components_source}
-
 uart:
   id: econet_uart
   baud_rate: 38400
   rx_buffer_size: 1500
   tx_pin: ${tx_pin}
   rx_pin: ${rx_pin}
-
 econet:
   id: econet_id
   uart_id: econet_uart
   update_interval: ${econet_update_interval}
   src_address: 0x340
-
 sensor:
   - platform: econet
     name: "Active Alerts"
@@ -88,7 +76,6 @@ sensor:
     name: "WiFi Signal Strength"
     id: wifi_signal_sensor
     entity_category: "diagnostic"
-
 text_sensor:
   - platform: econet
     name: "Alarm 1"
@@ -154,7 +141,6 @@ text_sensor:
     request_once: true
     icon: "mdi:information-box"
     entity_category: "diagnostic"
-
 switch:
   - platform: econet
     name: "Beep On Alarm"
@@ -192,7 +178,6 @@ switch:
     switch_datapoint: ALHISCLR
     request_mod: none
     internal: true
-
 button:
   - platform: restart
     name: "Restart ESP"
