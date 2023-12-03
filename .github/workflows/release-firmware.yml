@@ -35,7 +35,7 @@ jobs:
           cmd: >
             yq -i
             '
-              .esphome.project.version = "v${{ steps.generate_release_version.outputs.version_tag }}"
+              .esphome.project.version = "${{ steps.generate_release_version.outputs.version_tag }}"
             '
             econet_base.yaml
       - name: Commit Changes
@@ -47,4 +47,4 @@ jobs:
         uses: ncipollo/release-action@v1.13.0
         with:
           generateReleaseNotes: true
-          tag: v${{ steps.generate_release_version.outputs.version_tag }}
+          tag: ${{ steps.generate_release_version.outputs.version_tag }}
