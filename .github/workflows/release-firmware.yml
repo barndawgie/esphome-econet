@@ -22,7 +22,7 @@ jobs:
         uses: mikefarah/yq@v4.40.3
         with:
           cmd: >
-            yq -P -i
+            yq -i
             '
               .esphome.project.version = "${{ github.ref_name }}"
             '

@@ -41,7 +41,7 @@ jobs:
         uses: mikefarah/yq@v4.40.3
         with:
           cmd: >
-            yq -P -i
+            yq -i
             '
               .substitutions.external_components_source = "../components" |
               .packages.econet = "../econet_${{ matrix.appliance.name }}.yaml" |
