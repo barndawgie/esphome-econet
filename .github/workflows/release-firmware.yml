@@ -4,10 +4,11 @@ name: Release Firmware
 on:
   workflow_dispatch:
     inputs:
-      release-tag:
+      bump:
         type: string
+        default: "patch"
         required: true
-        description: "The version tag to create."
+        description: "The type of semantic version increment to make. One of major, premajor, minor, preminor, patch, prepatch, or prerelease."
 
 jobs:
   update-version-strings:
@@ -18,6 +19,13 @@ jobs:
       # added or changed files to the repository.
       contents: write
     steps:
+      - name: Generate Release Version
+        id: generate_release_version
+        uses: zwaldowski/semver-release-action@v3
+        with:
+          bump: ${{ inputs.bump }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          prefix: "v"
       - uses: actions/checkout@v4.1.1
         with:
           token: ${{ secrets.ESPHOME_ECONET_TEST_SECRET }}
@@ -27,7 +35,7 @@ jobs:
           cmd: >
             yq -i
             '
-              .esphome.project.version = "${{ github.ref_name }}"
+              .esphome.project.version = "${{ steps.generate_release_version.version_tag }}"
             '
             econet_base.yaml
       - name: Commit Changes
@@ -35,3 +43,8 @@ jobs:
         with:
           commit_message: "Automated project versioning update"
           push_options: '--force'
+      - name: Create Release
+        uses: ncipollo/release-action@v1.13.0
+        with:
+          generateReleaseNotes: true
+          tag: ${{ steps.generate_release_version.version_tag }}
