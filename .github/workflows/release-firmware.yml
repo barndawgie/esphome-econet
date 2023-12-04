@@ -31,7 +31,7 @@ jobs:
         with:
           token: ${{ secrets.ESPHOME_ECONET_TEST_SECRET }}
       - name: Update Project Version String
-        uses: mikefarah/yq@v4.40.3
+        uses: mikefarah/yq@v4.40.4
         with:
           cmd: >
             yq -i
