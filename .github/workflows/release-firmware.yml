@@ -28,8 +28,8 @@ jobs:
           prefix: "v"
           dry_run: true
       - uses: actions/checkout@v4.1.1
-        with:
-          token: ${{ secrets.ESPHOME_ECONET_TEST_SECRET }}
+        # with:
+        #   token: ${{ secrets.ESPHOME_ECONET_TEST_SECRET }}
       - name: Update Project Version String
         uses: mikefarah/yq@v4.40.3
         with:
