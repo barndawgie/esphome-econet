@@ -2,7 +2,7 @@
 substitutions:
   tx_pin: GPIO6
   rx_pin: GPIO5
-  board: esp32-s3-devkitm-1
+  board: em5stack-atoms3
 
 packages:
   econet:
