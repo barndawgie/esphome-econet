@@ -56,7 +56,7 @@ datetime:
         .tm_mon = (int) id(irtc_month).state - 1,  // C++: 0-11, econet: 1-12
         .tm_year = (int) id(irtc_year).state + 2000 - 1900  // C++: years since 1900, econet: since 2000
       };
-      ESPTime esp_time = ESPTime::from_c_tm(&controller_time, mktime(&controller_time));
+      ESPTime esp_time = ESPTime::from_epoch_local(mktime(&controller_time));
       return esp_time;
     set_action:
       - number.set:
