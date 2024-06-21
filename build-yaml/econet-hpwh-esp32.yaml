@@ -15,6 +15,19 @@ dashboard_import:
   package_import_url: github://esphome-econet/esphome-econet/build-yaml/${name}-${platform}.yaml@${github_ref}
   import_full_config: false
 
+http_request:
+  verify_ssl: false
+
+ota:
+  - platform: esphome
+  - platform: http_request
+
+update:
+  - platform: http_request
+    name: Firmware Update
+    source: https://esphome-econet.github.io/esphome-econet/econet-hpwh.json
+    update_interval: 30s
+
 # Uncomment the below to use Wi-Fi settings from your secrets.yaml file
 # wifi:
 #   ssid: !secret wifi_ssid

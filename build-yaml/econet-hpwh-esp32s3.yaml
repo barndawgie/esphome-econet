@@ -24,6 +24,19 @@ esp32:
   board: ${board}
   variant: ${variant}
 
+http_request:
+  verify_ssl: false
+
+ota:
+  - platform: esphome
+  - platform: http_request
+
+update:
+  - platform: http_request
+    name: Firmware Update
+    source: https://esphome-econet.github.io/esphome-econet/econet-hpwh.json
+    update_interval: 30s
+
 # Uncomment the below to use Wi-Fi settings from your secrets.yaml file
 # wifi:
 #   ssid: !secret wifi_ssid
