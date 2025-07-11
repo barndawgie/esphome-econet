@@ -122,6 +122,22 @@ binary_sensor:
     id: compressor
     sensor_datapoint: COMP_RLY
     device_class: "running"
+  - platform: econet
+    name: "Leak Sensor Installed?"
+    id: leak_sensor_installed
+    sensor_datapoint: LSDETECT
+    entity_category: "diagnostic"
+    request_mod: 4
+    request_once: true
+    icon: "mdi:valve"
+  - platform: econet
+    name: "Shut-Off Valve Installed"
+    id: shutoff_valve_installed
+    sensor_datapoint: SHUTOFFV
+    entity_category: "diagnostic"
+    request_mod: 4
+    request_once: true
+    icon: "mdi:valve"
 
 text_sensor:
   - platform: econet
