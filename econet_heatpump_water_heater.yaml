@@ -123,13 +123,13 @@ binary_sensor:
     sensor_datapoint: COMP_RLY
     device_class: "running"
   - platform: econet
-    name: "Leak Sensor Installed?"
+    name: "Leak Sensor Installed"
     id: leak_sensor_installed
     sensor_datapoint: LSDETECT
     entity_category: "diagnostic"
     request_mod: 4
     request_once: true
-    icon: "mdi:valve"
+    icon: "mdi:water-pump"
   - platform: econet
     name: "Shut-Off Valve Installed"
     id: shutoff_valve_installed
